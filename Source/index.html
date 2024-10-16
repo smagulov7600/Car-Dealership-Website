@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 
-<html>
-    <head>
-        <link rel="stylesheet" href="styling.css">
-        <title>Car Dealership Website</title>
-    </head>
+<html lang="en-GB">
 
-    <body>
-        
+<head>
+  <link rel="preload" href="/Fonts/RivieraNights-Regular.woff" as="font" crossorigin="anonymous">
+  <link rel="stylesheet" href="styling.css" />
+  <title>Car Dealership Website</title>
+  <link rel="shortcut icon" type="image/png" href="/Images/favicon.png">
+</head>
 
-        <script src="functions.js"></script>
-    </body>
+<body>
+  <div role="main" class="container wrapper">
+    <!-- Navigation Bar -->
+    <nav aria-label="primary navigation" role="navigation" class="nav-grid-container">
+      <!-- Menu Button -->
+      <span class="span-nav-menu">Menu</span>
+
+      <!-- Clickable Logo -->
+      <span class="span-nav-logo-container">
+        <a aria-label="Rolls Royce Home Page Logo" href="index.html">
+          <span class="span-nav-logo" style="opacity: 1;"></span>
+        </a>
+      </span>
+
+      <!-- Contact Us button-->
+      <div>
+        <span class="span-nav-find-a-dealer">Find a Dealer</span>
+      </div>
+
+      <!-- Keyline -->>
+       <span class="span-nav-keyline"></span>
+    </nav>
+    <!-- Car Videos -->
+    <div class="Top-Page"></div>
+    <!-- History of the dealership, lifestyle-->
+    <div class="middle page"></div>
+  </div>
+  <script src="functionality.js"></script>
+</body>
 </html>
