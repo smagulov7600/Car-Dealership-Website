@@ -18,19 +18,27 @@ body {
     -apple-system, sans-serif;
 }
 
+@media only screen and (max-width: 1439px) {
+  .nav-grid-container {
+    grid-template-columns: 16px repeat(4, 1fr 16px) 1fr 16px;
+  }
+}
+
 .nav-grid-container {
-  position: relative;
-  height: 95px;
-  color: #fff;
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 0) 15%,
     rgba(0, 0, 0, 0.25) 100%
   );
-  height: 120px;
-  grid-template-rows: 120px auto auto;
-  grid-template-columns: 16px repeat(4, 1fr 16px) 16px;
+  z-index: 1;
+  position: fixed;
   display: grid;
+  height: 120px;
+  top: 0;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  grid-template-rows: 120px auto auto;
 }
 
 .nav-grid-container span {
@@ -74,4 +82,12 @@ body {
 
 .span-nav-keyline {
   display: flex;
+  position: relative;
+  grid-row: 2 / span 1;
+  grid-column: 2 / span 8;
+  align-self: flex-start;
+  vertical-align: baseline;
+  opacity: 0.5;
+  height: 1px;
+  background-color: #ddd;
 }
