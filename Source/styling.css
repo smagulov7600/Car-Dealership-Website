@@ -1,5 +1,20 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+html, body {
+  position: relative;
+}
+
 html {
   font-size: 62.5%;
+  text-rendering: optimizeLegibility;
+  scroll-padding-top: 0;
 }
 
 body {
@@ -18,19 +33,12 @@ body {
     -apple-system, sans-serif;
 }
 
-@media only screen and (max-width: 1439px) {
-  .nav-grid-container {
-    grid-template-columns: 16px repeat(4, 1fr 16px) 1fr 16px;
-  }
-}
-
 .nav-grid-container {
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 0) 15%,
     rgba(0, 0, 0, 0.25) 100%
   );
-  z-index: 1;
   position: fixed;
   display: grid;
   height: 120px;
@@ -39,6 +47,7 @@ body {
   justify-content: center;
   align-items: center;
   grid-template-rows: 120px auto auto;
+  grid-template-columns: 16px repeat(3, 1fr 16px) 1fr 16px;
 }
 
 .nav-grid-container span {
@@ -74,6 +83,7 @@ body {
   display: flex;
   align-items: center;
   will-change: transform;
+  flex-direction: row-reverse;
 }
 .span-nav-find-a-dealer {
   position: relative;
