@@ -55,9 +55,10 @@ body {
 }
 
 .div-nav-menu {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   cursor: pointer;
   justify-content: flex-start;
   grid-column: 4 / span 2;
@@ -65,9 +66,27 @@ body {
 }
 
 .line {
-  width: 28px;
-  height: 2.4px;
+  width: 23px;
+  height: 2px;
   background-color: #fff;
+  transform-origin: left;
+  transition: transform .5s ease, opacity 0.2s ease;
+}
+
+.div-nav-menu.open .middle_line {
+  opacity: 0;
+}
+
+.div-nav-menu.open .top_line {
+  position: relative;
+  left: 1px;
+  transform: rotate(45deg);
+}
+
+.div-nav-menu.open .bottom_line {
+  position: relative;
+  left: 1px;
+  transform: rotate(-45deg);
 }
 
 .span-nav-logo-container {
