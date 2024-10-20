@@ -3,6 +3,9 @@
 <html lang="en-GB">
 
 <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <link rel="preload" href="/Fonts/RivieraNights-Regular.woff" as="font" crossorigin="anonymous">
   <link rel="stylesheet" href="styling.css" />
   <title>Car Dealership Website</title>
@@ -15,12 +18,16 @@
     <div class="video-container">
       <video height="705px" autoplay muted loop>
         <source src="/Videos/VideoTemplate2.mp4" type="video/mp4">
-      </video>  
+      </video>
     </div>
     <!-- Navigation Bar -->
     <nav aria-label="primary navigation" role="navigation" class="nav-grid-container">
       <!-- Menu Button -->
-      <span class="span-nav-menu" style="color: white;" >Menu</span>
+      <div class="div-nav-menu open">
+        <span class="line top_line"></span>
+        <span class="line middle_line"></span>
+        <span class="line bottom_line"></span>
+      </div>
 
       <!-- Clickable Logo -->
       <span class="span-nav-logo-container">
@@ -35,11 +42,12 @@
       </div>
 
       <!-- Keyline -->
-       <span class="span-nav-keyline"></span>
+      <span class="span-nav-keyline"></span>
     </nav>
     <!-- History of the dealership, lifestyle-->
     <div class="middle page"></div>
   </div>
   <script src="functionality.js"></script>
 </body>
+
 </html>
