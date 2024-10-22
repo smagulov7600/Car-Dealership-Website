@@ -1,22 +1,24 @@
 @font-face {
-  font-family: 'Riviera Nights';
+  font-family: "Riviera Nights";
   src: url(/Fonts/RivieraNights-Regular.woff);
 }
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 body {
-  font-family: "Riviera Nights", "Gill Alt One MT", Helvetica, Arial, -apple-system, sans-serif;
+  font-family: "Riviera Nights", "Gill Alt One MT", Helvetica, Arial,
+    -apple-system, sans-serif;
 }
 
-html, body {
+html,
+body {
   position: relative;
 }
 
@@ -63,6 +65,45 @@ body {
   overflow: hidden;
 }
 
+.slide {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 200px;
+  position: absolute;
+  opacity: 0.8;
+  transition: 0.5s ease;
+  background-color: black;
+  backdrop-filter: blur(10px);
+  transform: translateX(-200px);
+}
+
+input {
+  display: none;
+  visibility: hidden;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li a {
+  color: #ffff;
+  padding: 5px 0;
+  display: block;
+  text-align: right;
+  text-transform: capitalize;
+  text-decoration: none;
+  transition: 0.2s ease-out;
+}
+
+.slide.open {
+  transform: translateX(0);
+}
+
 .nav-menu-button {
   overflow: hidden;
   display: flex;
@@ -79,7 +120,7 @@ body {
   height: 2px;
   background-color: #fff;
   transform-origin: left;
-  transition: transform .5s ease, opacity 0.2s ease;
+  transition: transform 0.5s ease, opacity 0.2s ease;
 }
 
 .nav-menu-button.open .middle_line {
