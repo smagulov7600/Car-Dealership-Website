@@ -37,6 +37,10 @@ body {
   overflow-x: hidden;
 }
 
+body.no-scroll {
+  overflow-y: hidden;
+}
+
 button,
 body {
   background-color: grey;
@@ -66,17 +70,19 @@ body {
 }
 
 .slide {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  width: 200px;
-  position: absolute;
-  opacity: 0.8;
-  transition: 0.5s ease;
-  background-color: black;
-  backdrop-filter: blur(10px);
-  transform: translateX(-200px);
+    position: fixed;
+    left: 0;
+    top: 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 200px;
+    opacity: 0.8;
+    transition: transform 0.5s ease;
+    background-color: black;
+    backdrop-filter: blur(10px);
+    transform: translateX(-200px);
 }
 
 input {
@@ -178,4 +184,10 @@ ul li a {
   opacity: 0.5;
   height: 1px;
   background-color: #ddd;
+}
+
+.middle_page_container {
+  display: flex;
+  height: 705px;
+  width: auto;
 }
