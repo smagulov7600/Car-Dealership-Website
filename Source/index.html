@@ -13,34 +13,26 @@
 </head>
 
 <body>
-  <div role="main" class="container wrapper">
+  <div role="main" class="container-wrapper">
     <!-- Car Videos -->
-    <div class="video-container">
-      <video height="100%px" autoplay muted loop>
+    <div class="video-container" style="position: absolute; height: 705px; left: -200px;">
+      <video autoplay muted loop>
         <source src="/Videos/VideoTemplate2.mp4" type="video/mp4">
       </video>
     </div>
-    <!-- Sliding Sidebar -->
-    <div class="slide">
-      <ul>
-        <li><a href="#">Models</a></li>
-        <li><a href="#">Maintenance</a></li>
-        <li><a href="#">Visionaries</a></li>
-        <li><a href="#">Accessories</a></li>
-        <li><a href="#">About</a></li>
-      </ul>
-    </div>
-    <!-- Navigation Bar -->
-    <nav aria-label="primary navigation" role="navigation" class="nav-grid-container">
-      <!-- Menu Button -->
-      <input type="checkbox">
-      <div class="nav-menu-button">
+    <!-- Menu Button and Menu Text Wrapper -->
+    <div class="menu-container">
+      <div class="menu-button">
         <span class="line top_line"></span>
         <span class="line middle_line"></span>
         <span class="line bottom_line"></span>
       </div>
+      <span class="menu-text">Menu</span>
+    </div>
+    <!-- Navigation Bar -->
+    <nav aria-label="primary navigation" role="navigation" class="nav-grid-container">
       <!-- Clickable Logo -->
-      <span class="span-nav-logo-container">
+      <span class="logo-container">
         <a aria-label="Rolls Royce Home Page Logo" href="index.html">
           <span class="span-nav-logo" style="opacity: 1;"></span>
         </a>
@@ -52,9 +44,19 @@
       <!-- Keyline -->
       <span class="span-nav-keyline"></span>
     </nav>
+    <!-- Sliding Sidebar -->
+    <div class="slide">
+      <ul>
+        <li><a href="#">Models</a></li>
+        <li><a href="#">Maintenance</a></li>
+        <li><a href="#">Visionaries</a></li>
+        <li><a href="#">Accessories</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </div>
     <!-- History of the dealership, lifestyle-->
-    <div class="second-main" style="height: 705px;">
-      
+    <div class="second-main">
+
     </div>
   </div>
   <script src="/Source/functionality.js"></script>
