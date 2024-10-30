@@ -77,12 +77,11 @@ body {
     display: flex;
     justify-content: center;
     height: 100%;
-    width: 200px;
-    opacity: 0.8;
+    width: 270px;
     transition: transform 0.5s ease;
-    background-color: black;
     backdrop-filter: blur(10px);
-    transform: translateX(-200px);
+    transform: translateX(-270px);
+    z-index: 100;
 }
 
 input {
@@ -106,19 +105,39 @@ ul li a {
   transition: 0.2s ease-out;
 }
 
+ul li a:hover {
+  color: #8e8e8e;
+}
+
 .slide.open {
   transform: translateX(0);
 }
 
-.nav-menu-button {
+.menu-container {
+  display: flex;
+  align-items: center; /* Aligns items vertically centered */
+  gap: 8px; /* Space between the icon and the text */
+  justify-content: flex-start;
+  left: 92.5px;
+  position: fixed;
+  cursor: pointer;
+  z-index: 150;
+  height: 120px;
+}
+
+.menu-button {
   overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 6px;
-  cursor: pointer;
   justify-content: flex-start;
-  grid-column: 4 / span 2;
   position: relative;
+  top: -1px;
+}
+
+.menu-text {
+  color: white;
+  letter-spacing: 0.05em;
 }
 
 .line {
@@ -129,23 +148,23 @@ ul li a {
   transition: transform 0.5s ease, opacity 0.2s ease;
 }
 
-.nav-menu-button.open .middle_line {
+.menu-button.open .middle_line {
   opacity: 0;
 }
 
-.nav-menu-button.open .top_line {
+.menu-button.open .top_line {
   position: relative;
   left: 1px;
   transform: rotate(45deg);
 }
 
-.nav-menu-button.open .bottom_line {
+.menu-button.open .bottom_line {
   position: relative;
   left: 1px;
   transform: rotate(-45deg);
 }
 
-.span-nav-logo-container {
+.logo-container {
   display: flex;
   position: relative;
   height: 120px;
