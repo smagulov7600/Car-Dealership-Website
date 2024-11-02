@@ -5,29 +5,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="preload" href="/Fonts/RivieraNights-Regular.woff" as="font" crossorigin="anonymous">
-  <link rel="stylesheet" href="styling.css" />
   <title>Car Dealership Website</title>
+
+  <link rel="preload" href="/Fonts/RivieraNights-Regular.woff" as="font" type="font/woff" crossorigin="anonymous">
+  <link rel="stylesheet" href="styling.css" />
   <link rel="shortcut icon" type="image/png" href="/Images/favicon.png">
 </head>
 
 <body>
   <div role="main" class="container-wrapper">
-    <!-- Car Videos -->
-    <div class="video-container" style="position: absolute; height: 705px; left: -200px;">
-      <video autoplay muted loop>
-        <source src="/Videos/VideoTemplate2.mp4" type="video/mp4">
-      </video>
-    </div>
+    <video id="video" autoplay muted loop>
+      <source src="/Videos/VideoTemplate1.mp4#t=10" type="video/mp4">
+    </video>
     <!-- Menu Button and Menu Text Wrapper -->
-    <div class="menu-container">
+    <div class="menu-container" onclick="changeMenu('slide', 'menu-button', 'menu-text')">
       <div class="menu-button">
         <span class="line top_line"></span>
         <span class="line middle_line"></span>
         <span class="line bottom_line"></span>
       </div>
       <span class="menu-text">Menu</span>
+    </div>
+    <!-- Text in the middle and round select options -->
+    <div class="homepage">
+      <h2 class="home-text htext">Skylines</h2>
+      <p class="home-text ptext">GTR II SERIES</p>
+      <div class="explore-button"><a href="#" class="atext">Explore Now</a></div>
+      <ul class="round-option-list">
+        <li>
+          <a href="#" onclick="changeVideo('1')">
+            <svg height="16" width="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="rotate: 180deg;">
+              <circle id="1" class="selected" r="2" cx="8" cy="8" fill="white" />
+              <g class="rrmc-button-svg-anim-scale" transform="matrix(1,0,0,1,0,0)" data-svg-origin="0.75 0.75"
+                style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+                <path class="animated-path" d="
+                                   M 0.75 8
+                                   A 7.25 7.25 0 0 1 8 0.75
+                                   L 8 0.75
+                                   A 7.25 7.25 0 0 1 15.25 8
+                                   A 7.25 7.25 0 0 1 8 15.25
+                                   L 8 15.25
+                                   A 7.25 7.25 0 0 1 0.75 8
+                                   " stroke-dasharray="48.553093477052 48.553093477052" stroke-dashoffset="-48"
+                  stroke="#ffffff" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round" fill="transparent"
+                  style="stroke-dashoffset: -48px;"></path>
+              </g>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="#" onclick="changeVideo('2')">
+            <svg height="16" width="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="rotate: 180deg;">
+              <circle id="2" r="2" cx="8" cy="8" fill="white" />
+              <g class="rrmc-button-svg-anim-scale" transform="matrix(1,0,0,1,0,0)" data-svg-origin="0.75 0.75"
+                style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+                <path class="animated-path" d="
+                                                 M 0.75 8
+                                                 A 7.25 7.25 0 0 1 8 0.75
+                                                 L 8 0.75
+                                                 A 7.25 7.25 0 0 1 15.25 8
+                                                 A 7.25 7.25 0 0 1 8 15.25
+                                                 L 8 15.25
+                                                 A 7.25 7.25 0 0 1 0.75 8
+                                                 " stroke-dasharray="48.553093477052 48.553093477052"
+                  stroke-dashoffset="-48" stroke="#ffffff" stroke-width="1.5" stroke-linecap="square"
+                  stroke-linejoin="round" fill="transparent" style="stroke-dashoffset: -48px;"></path>
+              </g>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="#" onclick="changeVideo('3')">
+            <svg height="16" width="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="rotate: 180deg;">
+              <circle id="3" r="2" cx="8" cy="8" fill="white" />
+              <g class="rrmc-button-svg-anim-scale" transform="matrix(1,0,0,1,0,0)" data-svg-origin="0.75 0.75"
+                style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+                <path class="animated-path" d="
+                                                 M 0.75 8
+                                                 A 7.25 7.25 0 0 1 8 0.75
+                                                 L 8 0.75
+                                                 A 7.25 7.25 0 0 1 15.25 8
+                                                 A 7.25 7.25 0 0 1 8 15.25
+                                                 L 8 15.25
+                                                 A 7.25 7.25 0 0 1 0.75 8
+                                                 " stroke-dasharray="48.553093477052 48.553093477052"
+                  stroke-dashoffset="-48" stroke="#ffffff" stroke-width="1.5" stroke-linecap="square"
+                  stroke-linejoin="round" fill="transparent"></path>
+              </g>
+            </svg>
+          </a>
+        </li>
+      </ul>
     </div>
     <!-- Navigation Bar -->
     <nav aria-label="primary navigation" role="navigation" class="nav-grid-container">
@@ -46,7 +114,7 @@
     </nav>
     <!-- Sliding Sidebar -->
     <div class="slide">
-      <ul>
+      <ul class="sidebar-list">
         <li><a href="#">Models</a></li>
         <li><a href="#">Maintenance</a></li>
         <li><a href="#">Visionaries</a></li>
@@ -55,11 +123,11 @@
       </ul>
     </div>
     <!-- History of the dealership, lifestyle-->
-    <div class="second-main">
+    <div class="second-homepage">
 
     </div>
   </div>
-  <script src="/Source/functionality.js"></script>
+  <script src="/Source/animations.js"></script>
 </body>
 
 </html>
