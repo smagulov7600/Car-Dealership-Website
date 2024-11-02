@@ -12,11 +12,6 @@
   vertical-align: baseline;
 }
 
-body {
-  font-family: "Riviera Nights", "Gill Alt One MT", Helvetica, Arial,
-    -apple-system, sans-serif;
-}
-
 html,
 body {
   position: relative;
@@ -29,23 +24,19 @@ html {
 }
 
 body {
+  background-color: black;
   font-size: 1.6rem;
   letter-spacing: 0.03125em;
   line-height: 1.5;
   font-weight: 300;
   overscroll-behavior: none;
   overflow-x: hidden;
+  font-family: "Riviera Nights", "Gill Alt One MT", Helvetica, Arial,
+    -apple-system, sans-serif;
 }
 
 body.no-scroll {
   overflow-y: hidden;
-}
-
-button,
-body {
-  background-color: grey;
-  font-family: "Riviera Nights", "Gill Alt One MT", Helvetica, Arial,
-    -apple-system, sans-serif;
 }
 
 .nav-grid-container {
@@ -65,37 +56,40 @@ body {
   grid-template-columns: 16px 2fr 16px repeat(12, 96px 16px) 2fr 16px;
 }
 
+#video {
+  position: absolute;
+  transition: opacity 1s ease;
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
 .nav-grid-container span {
   overflow: hidden;
 }
 
 .slide {
-    position: fixed;
-    left: 0;
-    top: 0;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    width: 270px;
-    transition: transform 0.5s ease;
-    backdrop-filter: blur(10px);
-    transform: translateX(-270px);
-    z-index: 100;
+  position: fixed;
+  left: 0;
+  top: 0;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 270px;
+  transition: transform 0.5s ease;
+  backdrop-filter: blur(10px);
+  transform: translateX(-270px);
+  z-index: 100;
 }
 
-input {
-  display: none;
-  visibility: hidden;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-ul li {
+li {
   list-style: none;
 }
 
-ul li a {
+.sidebar-list li a {
   color: #ffff;
   padding: 5px 0;
   display: block;
@@ -185,11 +179,10 @@ ul li a:hover {
 }
 
 .div-nav-find-a-dealer {
+  right: 92.5px;
   display: flex;
-  align-items: center;
-  will-change: transform;
   flex-direction: row-reverse;
-  position: relative;
+  position: fixed;
   grid-column: 23 / span 4;
 }
 
@@ -205,8 +198,145 @@ ul li a:hover {
   background-color: #ddd;
 }
 
-.middle_page_container {
+.homepage {
+  margin: 0 5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  overflow: hidden;
+  height: 100%;
   display: flex;
-  height: 705px;
-  width: auto;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.home-text {
+  color: #ffff;
+  margin-right: -1.2rem;
+  --heading-spacer: 1.4rem;
+  margin-left: 0.8rem;
+  letter-spacing: 0.22em;
+  font: inherit;
+  margin-bottom: var(--heading-spacer);
+  text-transform: uppercase;
+  vertical-align: baseline;
+  line-height: 0.8;
+  opacity: 0;
+}
+
+.htext {
+  font-size: 7rem;
+  font-weight: 300;
+}
+
+.ptext {
+  font-size: 2.3rem;
+  line-height: 1.6086956522;
+}
+
+.explore-button {
+  opacity: 0;
+  align-self: center;
+  display: inline-flex;
+  top: 15px;
+  position: relative;
+  min-height: 46px;
+  padding: 0 16px;
+  width: 306px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadeInUpAnimation {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.active-text {
+  animation: fadeInUpAnimation 0.4s ease-out;
+  animation-fill-mode: both;
+}
+
+.htext.active-text {
+  animation-delay: 0ms;
+}
+
+.ptext.active-text {
+  animation-delay: 200ms;
+}
+
+.explore-button.active-text {
+  animation-delay: 400ms;
+}
+
+.atext {
+  display: inline-block;
+  font-weight: 500;
+  letter-spacing: 0.1666666667em;
+  font-size: 1.2rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background-color: #ffff;
+  align-content: center;
+  line-height: 2;
+  text-transform: uppercase;
+  padding-right: 0;
+  position: relative;
+  will-change: right, padding;
+  text-decoration: none;
+  color: #151515;
+}
+
+.second-homepage {
+  position: relative;
+  display: flex;
+  height: 706px;
+  width: 100%;
+  top: 788px;
+}
+
+.round-option-list {
+  top: 84%;
+  display: grid;
+  position: inherit;
+  align-self: center;
+  row-gap: 20px;
+  rotate: -90deg;
+}
+
+.round-option-list li {
+  display: inline;
+}
+
+.round-option-list li a {
+  text-decoration: none;
+  align-content: center;
+}
+
+.round-option-list li a svg circle {
+  opacity: 0.5;
+}
+
+.round-option-list li a svg circle.selected {
+  opacity: 1;
+}
+
+.animated-path {
+  transition: stroke-dashoffset 15s ease-in;
+}
+
+.stopped {
+  transition: none;
 }
