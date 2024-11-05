@@ -58,8 +58,8 @@ body.no-scroll {
 
 #video {
   position: absolute;
-  transition: opacity 1s ease;
-  opacity: 1;
+  will-change: transform;
+  transition: opacity 500ms ease;
 }
 
 .fade-out {
@@ -79,6 +79,7 @@ body.no-scroll {
   justify-content: center;
   height: 100%;
   width: 270px;
+  will-change: transform;
   transition: transform 0.5s ease;
   backdrop-filter: blur(10px);
   transform: translateX(-270px);
@@ -96,6 +97,7 @@ li {
   text-align: right;
   text-transform: capitalize;
   text-decoration: none;
+  will-change: transform;
   transition: 0.2s ease-out;
 }
 
@@ -139,6 +141,7 @@ ul li a:hover {
   height: 2px;
   background-color: #fff;
   transform-origin: left;
+  will-change: transform;
   transition: transform 0.5s ease, opacity 0.2s ease;
 }
 
@@ -263,21 +266,58 @@ ul li a:hover {
   }
 }
 
-.active-text {
-  animation: fadeInUpAnimation 0.4s ease-out;
-  animation-fill-mode: both;
-}
-
 .htext.active-text {
+  will-change: transform;
+  animation: fadeInUpAnimation 0.4s ease;
+  animation-fill-mode: both;
   animation-delay: 0ms;
 }
 
 .ptext.active-text {
+  will-change: transform;
+  animation: fadeInUpAnimation 0.4s ease;
+  animation-fill-mode: both;
   animation-delay: 200ms;
 }
 
 .explore-button.active-text {
+  will-change: transform;
+  animation: fadeInUpAnimation 0.4s ease;
+  animation-fill-mode: both;
   animation-delay: 400ms;
+}
+
+@keyframes fadeInDownAnimation {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, 100px, 0);
+  }
+}
+
+.htext.inactive-text {
+  will-change: transform;
+  animation: fadeInDownAnimation 0.4s ease-out;
+  animation-fill-mode: both;
+  animation-delay: 400ms;
+}
+
+.ptext.inactive-text {
+  will-change: transform;
+  animation: fadeInDownAnimation 0.4s ease-out;
+  animation-fill-mode: both;
+  animation-delay: 200ms;
+}
+
+.explore-button.inactive-text {
+  will-change: transform;
+  animation: fadeInDownAnimation 0.4s ease-out;
+  animation-fill-mode: both;
+  animation-delay: 0ms;
 }
 
 .atext {
@@ -297,14 +337,6 @@ ul li a:hover {
   will-change: right, padding;
   text-decoration: none;
   color: #151515;
-}
-
-.second-homepage {
-  position: relative;
-  display: flex;
-  height: 706px;
-  width: 100%;
-  top: 788px;
 }
 
 .round-option-list {
@@ -330,13 +362,36 @@ ul li a:hover {
 }
 
 .round-option-list li a svg circle.selected {
+  will-change: transition;
+  transition: opacity 0.5s ease;
   opacity: 1;
 }
 
+.animated-button-scale {
+  will-change: transform;
+  transform-origin: 0px 0px;
+  transform: matrix(0.4, 0, 0, 0.4, 4.8, 4.8);
+  transition: transform 500ms ease;
+}
+
+.animated-button-scale.default-transform {
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
 .animated-path {
+  will-change: transform;
   transition: stroke-dashoffset 15s ease-in;
 }
 
 .stopped {
   transition: none;
+}
+
+.second-homepage {
+  position: relative;
+  display: flex;
+  height: 706px;
+  width: 100%;
+  top: 788px;
+  background-color: black;
 }
