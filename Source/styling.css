@@ -24,6 +24,7 @@ html {
 }
 
 body {
+  overflow: hidden;
   background-color: black;
   font-size: 1.6rem;
   letter-spacing: 0.03125em;
@@ -35,39 +36,97 @@ body {
     -apple-system, sans-serif;
 }
 
-body.no-scroll {
-  overflow-y: hidden;
+.container-wrapper {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100vh;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #333;
 }
 
-.nav-grid-container {
+.container-wrapper.no-scroll {
+  overflow: hidden;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+  height: calc(100vh + 3px);
+}
+
+.component-grid-container {
+  display: grid;
+  grid-template-columns: 16px repeat(3, 1fr 16px) 1fr 16px;
+  grid-template-rows: auto auto auto auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .component-grid-container {
+    grid-template-columns: 16px repeat(12, 1fr 16px);
+    grid-template-rows: auto auto auto;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .component-grid-container {
+    grid-template-columns: 16px 2fr 16px repeat(12, 96px 16px) 2fr 16px;
+    grid-template-rows: auto auto auto;
+  }
+}
+
+.nav-container {
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 0) 15%,
     rgba(0, 0, 0, 0.25) 100%
   );
   position: fixed;
-  display: grid;
-  height: 120px;
+  height: 95px;
   top: 0;
   width: 100%;
   justify-content: center;
   align-items: center;
-  grid-template-rows: 120px auto auto;
-  grid-template-columns: 16px 2fr 16px repeat(12, 96px 16px) 2fr 16px;
+  grid-template-rows: 95px auto auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav-container {
+    height: 120px;
+    grid-template-rows: 120px auto auto;
+  }
+}
+
+@media only screen and (max-width: 1439px) {
+  .nav-container {
+    grid-template-columns: 16px repeat(4, 1fr 16px) 1fr 16px;
+  }
+}
+
+.nav-container span {
+  overflow: hidden;
+}
+
+.video-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 #video {
-  position: absolute;
+  position: relative;
+  width: 100%;
+  height: auto;
   will-change: transform;
   transition: opacity 500ms ease;
 }
 
 .fade-out {
   opacity: 0;
-}
-
-.nav-grid-container span {
-  overflow: hidden;
 }
 
 .slide {
@@ -110,28 +169,48 @@ ul li a:hover {
 }
 
 .menu-container {
-  display: flex;
-  align-items: center; /* Aligns items vertically centered */
-  gap: 8px; /* Space between the icon and the text */
-  justify-content: flex-start;
-  left: 92.5px;
-  position: fixed;
-  cursor: pointer;
+  top: 0;
   z-index: 150;
-  height: 120px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+  left: 100px;
+  position: fixed;
+  height: 97px;
+}
+
+@media only screen and (min-width: 768px) {
+  .menu-container {
+    height: 120px;
+  }
+}
+
+@media only screen and (max-width: 1439px) {
+  .menu-container {
+    left: 16.1px;
+  }
 }
 
 .menu-button {
-  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background-color: transparent;
+}
+
+.menu-animation {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  justify-content: flex-start;
+  justify-content: center;
   position: relative;
-  top: -1px;
 }
 
 .menu-text {
+  position: relative;
+  top: 1.5px;
   color: white;
   letter-spacing: 0.05em;
 }
@@ -145,32 +224,57 @@ ul li a:hover {
   transition: transform 0.5s ease, opacity 0.2s ease;
 }
 
-.menu-button.open .middle_line {
+.menu-animation.open .middle_line {
   opacity: 0;
 }
 
-.menu-button.open .top_line {
+.menu-animation.open .top_line {
   position: relative;
-  left: 1px;
-  transform: rotate(45deg);
+  transform: rotate(44deg);
 }
 
-.menu-button.open .bottom_line {
+.menu-animation.open .bottom_line {
   position: relative;
-  left: 1px;
-  transform: rotate(-45deg);
+  transform: rotate(-43deg);
 }
 
 .logo-container {
   display: flex;
-  position: relative;
-  height: 120px;
   align-items: center;
+  position: relative;
   justify-content: center;
-  grid-column: 13 / span 5;
+  grid-column: 6 / span 1;
+  height: 97px;
 }
 
-.span-nav-logo {
+@media only screen and (min-width: 768px) {
+  .logo-container {
+    height: 120px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .logo-container {
+    grid-column: 5 / span 3;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .logo-container {
+    grid-column: 13 / span 5;
+  }
+}
+
+.a-logo {
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: flex;
+  width: 90px;
+  height: 65px;
+}
+
+.nav-logo {
   position: relative;
   height: 45px;
   width: 45px;
@@ -181,19 +285,67 @@ ul li a:hover {
   display: inline-block;
 }
 
-.div-nav-find-a-dealer {
-  right: 92.5px;
+.contact-us-container {
+  align-items: center;
+  right: 100px;
   display: flex;
-  flex-direction: row-reverse;
+  height: 97px;
   position: fixed;
-  grid-column: 23 / span 4;
 }
 
-.span-nav-keyline {
+@media only screen and (min-width: 768px) {
+  .contact-us-container {
+    height: 120px;
+    grid-column: 8 / span 3;
+  }
+}
+
+@media only screen and (max-width: 1439px) {
+  .contact-us-container {
+    right: 16.1px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .contact-us-container {
+    height: 120px;
+    grid-column: 23 / span 4;
+  }
+}
+
+.contact-us-button {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  cursor: pointer;
+  background-color: transparent;
+  position: relative;
+}
+
+.contact-us-text {
+  top: 1.5px;
+  cursor: pointer;
+  color: white;
+  letter-spacing: 0.05em;
+  position: relative;
+}
+
+.contact-us-icon {
+  top: 1px;
+  position: relative;
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+  background: url(/Images/ContactUsIcon.svg) no-repeat center;
+  background-size: contain;
+  background-color: transparent;
+}
+
+.nav-keyline {
   display: flex;
   position: relative;
   grid-row: 2 / span 1;
-  grid-column: 4 / span 23;
+  grid-column: 2 / span 9;
   align-self: flex-start;
   vertical-align: baseline;
   opacity: 0.5;
@@ -201,19 +353,29 @@ ul li a:hover {
   background-color: #ddd;
 }
 
+@media only screen and (min-width: 768px) {
+  .nav-keyline {
+    grid-column: 2 / span 9;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .nav-keyline {
+    grid-column: 4 / span 23;
+  }
+}
+
 .homepage {
-  margin: 0 5rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  overflow: hidden;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  align-content: center;
+  width: 100vw;
+  position: absolute;
+  text-align: center;
   justify-content: center;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  overflow: hidden;
 }
 
 .home-text {
@@ -340,9 +502,9 @@ ul li a:hover {
 }
 
 .round-option-list {
-  top: 84%;
+  top: 83%;
   display: grid;
-  position: inherit;
+  position: absolute;
   align-self: center;
   row-gap: 20px;
   rotate: -90deg;
@@ -388,10 +550,85 @@ ul li a:hover {
 }
 
 .second-homepage {
-  position: relative;
+  align-items: center;
   display: flex;
-  height: 706px;
+  flex-direction: row;
+  text-align: center;
+  position: relative;
+  height: calc(100vh + 5px);
+  overflow: hidden;
   width: 100%;
-  top: 788px;
-  background-color: black;
+  background: linear-gradient(135deg, #303030 49.9%, white 50.1%);
+}
+
+.history {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  font-size: small;
+  max-width: fit-content;
+  top: -30px;
+  padding-left: 15.1px;
+  padding-right: 5px;
+  color: #ffff;
+  position: relative;
+}
+
+.image-hero {
+  position: relative;
+  width: fit-content;
+  height: auto;
+  min-height: 350px;
+  top: 20px;
+  max-height: calc(100vh / 2);
+}
+
+.lifestyle {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  font-size: small;
+  max-width: fit-content;
+  top: 120px;
+  padding-right: 15.1px;
+  padding-left: 5px;
+  color: #151515;
+  position: relative;
+}
+
+@media only screen and (min-width: 1440px) {
+  .history {
+    font-size: medium;
+    padding-left: 120px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .lifestyle {
+    font-size: medium;
+    padding-right: 120px;
+  }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(200px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-200px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.auto-show {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide-up {
+    animation: slideUp 1s forwards;
+}
+
+.slide-down {
+    animation: slideDown 1s forwards;
 }
