@@ -1,13 +1,14 @@
 const headerText = document.querySelector(".htext");
 const paragraphText = document.querySelector(".ptext");
 const exploreButton = document.querySelector(".explore-button");
+const menuButton = document.querySelector(".menu-button");
 
-function changeMenu(slide, button, textclass) {
-  document.querySelector(`.${slide}`).classList.toggle("open");
-  document.querySelector(`.${button}`).classList.toggle("open");
-  document.body.classList.toggle("no-scroll");
+function changeMenu() {
+  document.querySelector(".slide").classList.toggle("open");
+  menuButton.firstElementChild.classList.toggle("open");
+  document.querySelector(".container-wrapper").classList.toggle("no-scroll");
 
-  const text = document.querySelector(`.${textclass}`);
+  const text = menuButton.lastElementChild;
   if (text.textContent == "Menu") {
     text.textContent = "Close";
   } else {
@@ -78,7 +79,9 @@ async function textAnimation(newId, newCircle) {
       videoElement.load();
 
       newCircle.classList.add("selected");
-      newCircle.parentElement.lastElementChild.classList.add("default-transform");
+      newCircle.parentElement.lastElementChild.classList.add(
+        "default-transform"
+      );
 
       headerText.classList.remove("inactive-text");
       paragraphText.classList.remove("inactive-text");
@@ -88,7 +91,11 @@ async function textAnimation(newId, newCircle) {
       paragraphText.classList.add("active-text");
       exploreButton.classList.add("active-text");
 
-      videoElement.play();
+      try {
+        videoElement.play();
+      } catch (error) {
+        console.error("Error occurred while trying to play the video:", error);
+      }
     },
     { once: true }
   );
@@ -106,7 +113,7 @@ function changeVideo(newId) {
     newCircle.parentElement.lastElementChild.firstElementChild;
 
   currentCircle.classList.remove("selected");
-  currentPathElement.classList.remove("default-transform");
+  currentPathElement.parentElement.classList.remove("default-transform");
 
   if (letAnimationPlay) {
     stopAnimation(currentPathElement);
@@ -119,16 +126,60 @@ function changeVideo(newId) {
   textAnimation(newId, newCircle);
 }
 
+let lastScrollY = window.scrollY;
+const navBar = document.querySelector(".nav-container");
+window.addEventListener("scroll", function () {
+  let currentScrollY = window.scrollY;
+
+  if ((currentScrollY > lastScrollY) & !navBar.classList.contains("active")) {
+    // Scrolling down
+    navBar.classList.remove("active");
+    menuBar.classList.remove("active");
+  } else if (
+    (currentScrollY < lastScrollY) &
+    navBar.classList.contains("active")
+  ) {
+    // Scrolling up
+    navBar.classList.add("active");
+    menuBar.classList.add("active");
+  }
+
+  lastScrollY = currentScrollY;
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const pathElement = currentCircle.parentElement.lastElementChild;
 
-  headerText.classList.add("active-text");
-  paragraphText.classList.add("active-text");
-  exploreButton.classList.add("active-text");
-  currentCircle.classList.add("selected");
-  pathElement.classList.toggle("default-transform");
-  videoElement.style.opacity = 1;
-
   circlingAnimation(pathElement.firstElementChild);
-  videoElement.play();
+  try {
+    videoElement.play();
+  } catch (error) {
+    console.error("Error occurred while trying to play the video:", error);
+  }
+  const observerOptions = {
+    threshold: 0.1, // Trigger when 10% of the element is in view
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Add animation classes when element is in view
+        if (entry.target.classList.contains("history")) {
+          entry.target.classList.add("slide-up");
+        } else if (entry.target.classList.contains("lifestyle")) {
+          entry.target.classList.add("slide-down");
+        }
+      } else {
+        // Remove animation classes when element goes out of view
+        entry.target.classList.remove("slide-down", "slide-up");
+      }
+    });
+  }, observerOptions);
+
+  // Observe the target elements
+  const historySection = document.querySelector(".history");
+  const lifestyleSection = document.querySelector(".lifestyle");
+
+  if (historySection) observer.observe(historySection);
+  if (lifestyleSection) observer.observe(lifestyleSection);
 });
