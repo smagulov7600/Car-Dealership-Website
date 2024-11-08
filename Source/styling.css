@@ -46,7 +46,7 @@ body {
 }
 
 .container-wrapper.no-scroll {
-  overflow: hidden;
+  pointer-events: none;
 }
 
 section {
@@ -78,11 +78,17 @@ section {
 }
 
 .nav-container {
+  opacity: 1;
+  translate: none;
+  rotate: none;
+  scale: none;
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 0) 15%,
     rgba(0, 0, 0, 0.25) 100%
   );
+  backdrop-filter: blur(0px);
+  will-change: transform, background;
   position: fixed;
   height: 95px;
   top: 0;
@@ -90,6 +96,17 @@ section {
   justify-content: center;
   align-items: center;
   grid-template-rows: 95px auto auto;
+  transition: transform 1s ease, background 1s ease-in;
+  right: 10.1px;
+}
+
+.nav-container.blur {
+  transform: translate(0px, -60px);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.3) 15%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
 }
 
 @media only screen and (min-width: 768px) {
@@ -176,11 +193,15 @@ ul li a:hover {
   align-items: center;
   gap: 8px;
   justify-content: flex-start;
-  left: 100px;
+  left: 90.5px;
   position: fixed;
   height: 97px;
   transition: transform 1s ease;
   will-change: transform;
+}
+
+.menu-container.retract {
+  transform: translate(0px, -30px);
 }
 
 @media only screen and (min-width: 768px) {
@@ -242,12 +263,21 @@ ul li a:hover {
 }
 
 .logo-container {
+  translate: none;
+  rotate: none;
+  scale: none;
   display: flex;
   align-items: center;
   position: relative;
   justify-content: center;
   grid-column: 6 / span 1;
   height: 97px;
+  transition: transform 1s ease;
+  will-change: transform;
+}
+
+.logo-container.retract {
+  transform: translate(0px, 30px) scale(0.8);
 }
 
 @media only screen and (min-width: 768px) {
@@ -295,6 +325,12 @@ ul li a:hover {
   height: 120px;
   grid-column: 8 / span 4;
   position: relative;
+  transition: transform 1s ease;
+  will-change: transform;
+}
+
+.contact-us-container.retract {
+  transform: translate(0px, 30px);
 }
 
 @media only screen and (max-width: 1439px) {
@@ -341,6 +377,7 @@ ul li a:hover {
 .nav-keyline {
   display: flex;
   position: relative;
+  opacity: 0.5;
   grid-row: 2 / span 1;
   grid-column: 2 / span 9;
   align-self: flex-start;
@@ -348,6 +385,11 @@ ul li a:hover {
   height: 1px;
   background-color: #ddd;
   transition: opacity 0.5s ease;
+  will-change: transform;
+}
+
+.nav-keyline.retract {
+  opacity: 0;
 }
 
 @media only screen and (min-width: 768px) {
@@ -652,4 +694,22 @@ ul li a:hover {
 .pop-up {
   animation: popUp 1s forwards;
   animation-delay: 0.5s;
+}
+
+#footer {
+  height: 245px;
+  background-color: black;
+  display: grid;
+}
+
+.social-media-icons {
+  display: grid;
+}
+
+.footer-keyline {
+  
+}
+
+.footer-lists {
+  
 }

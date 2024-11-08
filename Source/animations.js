@@ -126,26 +126,34 @@ function changeVideo(newId) {
   textAnimation(newId, newCircle);
 }
 
-let lastScrollY = window.scrollY;
 const navBar = document.querySelector(".nav-container");
-window.addEventListener("scroll", function () {
-  let currentScrollY = window.scrollY;
+const logo = navBar.children[0];
+const contactUs = navBar.children[1];
+const keyline = navBar.children[2];
 
-  if ((currentScrollY > lastScrollY) & !navBar.classList.contains("active")) {
-    // Scrolling down
-    navBar.classList.remove("active");
-    menuBar.classList.remove("active");
-  } else if (
-    (currentScrollY < lastScrollY) &
-    navBar.classList.contains("active")
-  ) {
-    // Scrolling up
-    navBar.classList.add("active");
-    menuBar.classList.add("active");
+const containerWrapper = document.querySelector(".container-wrapper");
+const sections = document.querySelectorAll(".section");
+const historySection = document.querySelector(".history");
+const lifestyleSection = document.querySelector(".lifestyle");
+const imageheroSection = document.querySelector(".image-hero");
+
+function changeNavMenu(status) {
+  if (status == true) {
+    // Going down
+    navBar.classList.add("blur");
+    menuButton.parentElement.classList.add("retract"); // Menu container
+    logo.classList.add("retract"); // Logo container
+    contactUs.classList.add("retract"); // Contact us button
+    keyline.classList.add("retract");
+  } else {
+    // Going up
+    navBar.classList.remove("blur");
+    menuButton.parentElement.classList.remove("retract");
+    logo.classList.remove("retract");
+    contactUs.classList.remove("retract");
+    keyline.classList.remove("retract");
   }
-
-  lastScrollY = currentScrollY;
-});
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const pathElement = currentCircle.parentElement.lastElementChild;
@@ -156,47 +164,38 @@ document.addEventListener("DOMContentLoaded", () => {
   } catch (error) {
     console.error("Error occurred while trying to play the video:", error);
   }
-  const observerOptions = {
-    threshold: 0.1, // Trigger when 10% of the element is in view
-  };
 
-  const lifestyleSection = document.querySelector(".lifestyle");
-  const imageheroSection = document.querySelector(".image-hero");
-  
+  containerWrapper.addEventListener("scroll", function () {
+    if (!containerWrapper.classList.contains("no-scroll")) {
+      containerWrapper.classList.add("no-scroll");
+      setTimeout(function () {
+        containerWrapper.classList.remove("no-scroll");
+      }, 500);
+    }
+  });
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // Add animation classes when element is in view
-        if (entry.target.classList.contains("history")) {
-          entry.target.classList.add("slide-up");
-          lifestyleSection.classList.add("slide-down");
-          imageheroSection.classList.add("pop-up");
-          
-          navBar.style.transform = "translate(0px, -60px)";
-          menuButton.parentElement.style.transform = "translate(0px, -30px)"; // Menu button
-          navBar.firstElementChild.style.transform = "translate(0px, 30px)"; // Logo container
-          navBar.children[1].style.transform = "translate(0px, 30px)"; // Contact us button
-          navBar.lastElementChild.style.transform = "translate(0px, 24px)"; // keyline
-          navBar.lastElementChild.style.opacity = "0";
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+
+          if (sectionId === "section2") {
+            historySection.classList.add("slide-up");
+            lifestyleSection.classList.add("slide-down");
+            imageheroSection.classList.add("pop-up");
+            changeNavMenu(true);
+          } else if (sectionId === "section1") {
+            historySection.classList.remove("slide-up");
+            lifestyleSection.classList.remove("slide-down");
+            imageheroSection.classList.remove("pop-up");
+            changeNavMenu(false);
+          }
         }
-      } else {
-        // Remove animation classes when element goes out of view
-        entry.target.classList.remove("slide-up");
-        lifestyleSection.classList.remove("slide-down");
-        imageheroSection.classList.remove("pop-up");
+      });
+    },
+    { threshold: 0.8 }
+  );
 
-        navBar.style.transform = "translate(0px, 0px)";
-        menuButton.parentElement.style.transform = "translate(0px, 0px)";
-        navBar.firstElementChild.style.transform = "translate(0px, 0px)";
-        navBar.children[1].style.transform = "translate(0px, 0px)";
-        navBar.lastElementChild.style.transform = "translate(0px, 0px)";
-        navBar.lastElementChild.style.opacity = "0.5";
-      }
-    });
-  }, observerOptions);
-  
-  const historySection = document.querySelector(".history");
-
-  if (historySection) observer.observe(historySection);
+  sections.forEach((section) => observer.observe(section));
 });

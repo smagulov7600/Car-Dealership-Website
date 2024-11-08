@@ -14,7 +14,7 @@
 <body>
   <div role="main" class="container-wrapper">
     <!-- Text in the middle and round select options -->
-    <section>
+    <section class="section" id="section1">
       <div class="video-container">
         <video id="video" preload="auto" muted loop style="opacity: 1;">
           <source src="/Videos/VideoTemplate1.mp4" type="video/mp4">
@@ -96,7 +96,7 @@
       </div>
     </section>
     <!-- History of the dealership, lifestyle-->
-    <section>
+    <section class="section" id="section2">
       <div class="second-homepage">
         <span class="history">
           <h1 style="text-align: center; padding-bottom: 10px; font-size: x-large;">History</h1>
@@ -130,27 +130,30 @@
         </span>
       </div>
     </section>
-    <section style="height: 300px;">
-      <footer style="height: 300px; background-color: grey;"></footer>
+    <section class="section" id="section3" style="height: 245px;">
+      <footer>
+        <div class="social-media-icons"></div>
+        <span class="footer-keyline"></span>
+        <div class="footer-lists"></div>
+      </footer>
     </section>
     <!-- Navigation Bar -->
-    <nav aria-label="primary navigation" role="navigation" class="nav-container component-grid-container"
-      style="opacity: 1; translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+    <nav aria-label="primary navigation" role="navigation" class="nav-container component-grid-container">
       <!-- Clickable Logo -->
-      <span class="logo-container" style="transform: translate(0px, 0px)">
-        <a aria-label="Rolls Royce Home Page Logo" class="a-logo" href="index.html">
+      <span class="logo-container">
+        <a aria-label="Home Page Logo" class="a-logo" href="index.html">
           <span class="nav-logo" style="opacity: 1;"></span>
         </a>
       </span>
       <!-- Contact Us button-->
-      <div class="contact-us-container" style="transform: translate(0px, 0px);">
+      <div class="contact-us-container">
         <button type="button" class="contact-us-button">
           <span class="contact-us-text">Contact Us</span>
           <span class="contact-us-icon"></span>
         </button>
       </div>
       <!-- Keyline -->
-      <span class="nav-keyline" style="transform: translate(0px, 0px); opacity: 0.5;"></span>
+      <span class="nav-keyline"></span>
     </nav>
     <!-- Sliding Sidebar -->
     <div class="slide">
@@ -163,7 +166,7 @@
       </ul>
     </div>
     <!-- Menu Button and Menu Text Wrapper -->
-    <div class="menu-container" style="transform: translate(0px, 0px);">
+    <div class="menu-container">
       <button type="button" class="menu-button" onclick="changeMenu()">
         <div class="menu-animation">
           <span class="line top_line"></span>
