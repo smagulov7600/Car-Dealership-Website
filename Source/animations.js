@@ -160,26 +160,43 @@ document.addEventListener("DOMContentLoaded", () => {
     threshold: 0.1, // Trigger when 10% of the element is in view
   };
 
+  const lifestyleSection = document.querySelector(".lifestyle");
+  const imageheroSection = document.querySelector(".image-hero");
+  
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         // Add animation classes when element is in view
         if (entry.target.classList.contains("history")) {
           entry.target.classList.add("slide-up");
-        } else if (entry.target.classList.contains("lifestyle")) {
-          entry.target.classList.add("slide-down");
+          lifestyleSection.classList.add("slide-down");
+          imageheroSection.classList.add("pop-up");
+          
+          navBar.style.transform = "translate(0px, -60px)";
+          menuButton.parentElement.style.transform = "translate(0px, -30px)"; // Menu button
+          navBar.firstElementChild.style.transform = "translate(0px, 30px)"; // Logo container
+          navBar.children[1].style.transform = "translate(0px, 30px)"; // Contact us button
+          navBar.lastElementChild.style.transform = "translate(0px, 24px)"; // keyline
+          navBar.lastElementChild.style.opacity = "0";
         }
       } else {
         // Remove animation classes when element goes out of view
-        entry.target.classList.remove("slide-down", "slide-up");
+        entry.target.classList.remove("slide-up");
+        lifestyleSection.classList.remove("slide-down");
+        imageheroSection.classList.remove("pop-up");
+
+        navBar.style.transform = "translate(0px, 0px)";
+        menuButton.parentElement.style.transform = "translate(0px, 0px)";
+        navBar.firstElementChild.style.transform = "translate(0px, 0px)";
+        navBar.children[1].style.transform = "translate(0px, 0px)";
+        navBar.lastElementChild.style.transform = "translate(0px, 0px)";
+        navBar.lastElementChild.style.opacity = "0.5";
       }
     });
   }, observerOptions);
-
-  // Observe the target elements
+  
   const historySection = document.querySelector(".history");
-  const lifestyleSection = document.querySelector(".lifestyle");
 
   if (historySection) observer.observe(historySection);
-  if (lifestyleSection) observer.observe(lifestyleSection);
 });
