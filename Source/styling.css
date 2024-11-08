@@ -139,7 +139,7 @@ section {
   height: 100%;
   width: 270px;
   will-change: transform;
-  transition: transform 0.5s ease;
+  transition: transform 1.5s ease;
   backdrop-filter: blur(10px);
   transform: translateX(-270px);
   z-index: 100;
@@ -157,11 +157,12 @@ li {
   text-transform: capitalize;
   text-decoration: none;
   will-change: transform;
-  transition: 0.2s ease-out;
+  transition: transform 0.2s ease-out, color 0.2s ease-out;
 }
 
 ul li a:hover {
   color: #8e8e8e;
+  transform: scale(1.5);
 }
 
 .slide.open {
@@ -178,6 +179,8 @@ ul li a:hover {
   left: 100px;
   position: fixed;
   height: 97px;
+  transition: transform 1s ease;
+  will-change: transform;
 }
 
 @media only screen and (min-width: 768px) {
@@ -286,18 +289,12 @@ ul li a:hover {
 }
 
 .contact-us-container {
+  justify-content: flex-end;
   align-items: center;
-  right: 100px;
   display: flex;
-  height: 97px;
-  position: fixed;
-}
-
-@media only screen and (min-width: 768px) {
-  .contact-us-container {
-    height: 120px;
-    grid-column: 8 / span 3;
-  }
+  height: 120px;
+  grid-column: 8 / span 4;
+  position: relative;
 }
 
 @media only screen and (max-width: 1439px) {
@@ -348,9 +345,9 @@ ul li a:hover {
   grid-column: 2 / span 9;
   align-self: flex-start;
   vertical-align: baseline;
-  opacity: 0.5;
   height: 1px;
   background-color: #ddd;
+  transition: opacity 0.5s ease;
 }
 
 @media only screen and (min-width: 768px) {
@@ -575,6 +572,7 @@ ul li a:hover {
 }
 
 .image-hero {
+  opacity: 0;
   position: relative;
   width: fit-content;
   height: auto;
@@ -611,24 +609,47 @@ ul li a:hover {
 }
 
 @keyframes slideUp {
-    from { transform: translateY(200px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(300px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes slideDown {
-  from { transform: translateY(-200px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.auto-show {
+  from {
+    transform: translateY(-300px);
     opacity: 0;
-    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .slide-up {
-    animation: slideUp 1s forwards;
+  animation: slideUp 1s forwards;
 }
 
 .slide-down {
-    animation: slideDown 1s forwards;
+  animation: slideDown 1s forwards;
+}
+
+@keyframes popUp {
+  from {
+    transform: translateY(-400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.pop-up {
+  animation: popUp 1s forwards;
+  animation-delay: 0.5s;
 }
