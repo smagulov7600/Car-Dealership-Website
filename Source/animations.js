@@ -91,11 +91,15 @@ async function textAnimation(newId, newCircle) {
       paragraphText.classList.add("active-text");
       exploreButton.classList.add("active-text");
 
-      try {
-        videoElement.play();
-      } catch (error) {
-        console.error("Error occurred while trying to play the video:", error);
-      }
+      videoElement.play().catch((error) => {
+        if (error.name === "AbortError") {
+          console.log(
+            "Playback was interrupted due to background restrictions."
+          );
+        } else {
+          console.error("Video playback failed for another reason:", error);
+        }
+      });
     },
     { once: true }
   );
@@ -140,7 +144,9 @@ const imageheroSection = document.querySelector(".image-hero");
 function changeNavMenu(status) {
   if (status == true) {
     // Going down
+    navBar.classList.remove("retract")
     navBar.classList.add("blur");
+    menuButton.parentElement.classList.remove("retract2");
     menuButton.parentElement.classList.add("retract"); // Menu container
     logo.classList.add("retract"); // Logo container
     contactUs.classList.add("retract"); // Contact us button
@@ -159,11 +165,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const pathElement = currentCircle.parentElement.lastElementChild;
 
   circlingAnimation(pathElement.firstElementChild);
-  try {
-    videoElement.play();
-  } catch (error) {
-    console.error("Error occurred while trying to play the video:", error);
-  }
+  videoElement.play().catch((error) => {
+    if (error.name === "AbortError") {
+      console.log("Playback was interrupted due to background restrictions.");
+    } else {
+      console.error("Video playback failed for another reason:", error);
+    }
+  });
 
   containerWrapper.addEventListener("scroll", function () {
     if (!containerWrapper.classList.contains("no-scroll")) {
@@ -190,6 +198,10 @@ document.addEventListener("DOMContentLoaded", () => {
             lifestyleSection.classList.remove("slide-down");
             imageheroSection.classList.remove("pop-up");
             changeNavMenu(false);
+          } else if (sectionId === "section3") {
+            console.log("3");
+            navBar.classList.add("retract");
+            menuButton.parentElement.classList.add("retract2");
           }
         }
       });
