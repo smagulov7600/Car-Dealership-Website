@@ -17,22 +17,22 @@
     <!-- Text in the middle and round select options -->
     <section class="section" id="section1">
       <div class="video-container">
-        <video id="video" preload="auto" muted loop style="opacity: 1;">
+        <video id="video" preload="auto" muted loop style="opacity: 1;" aria-label="Background video of car series">
           <source src="/Videos/VideoTemplate1.mp4" type="video/mp4">
         </video>
-        <div class="homepage">
-          <h2 class="home-text htext active-text">Skylines</h2>
-          <p class="home-text ptext active-text">GTR II SERIES
+        <div class="homepage" aria-labelledby="homepage-title" aria-describedby="homepage-description">
+          <h2 id="homepage-title" class="home-text htext active-text">Skylines</h2>
+          <p id="homepage-description" class="home-text ptext active-text">GTR II SERIES
           </p>
           <div class="explore-button active-text">
-            <a href="#" class="atext">Explore Now</a>
+            <a href="#" class="atext" aria-label="Explore Skylines GTR II series">Explore Now</a>
           </div>
-          <ul class="round-option-list">
+          <ul class="round-option-list" aria-label="Video selection options">
             <li>
-              <a href="#" onclick="changeVideo('1')">
+              <a href="#" onclick="changeVideo('1')" aria-label="Play video option 1">
                 <svg height="16" width="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
                   style="rotate: 180deg;">
-                  <circle class="selected" id="1" r="3" cx="8" cy="8" fill="white" />
+                  <circle class="selected" id="1" r="3" cx="8" cy="8" fill="white" aria-hidden="true"/>
                   <g class="animated-button-scale default-transform">
                     <path class="animated-path" d="
                                    M 0.75 8
@@ -44,7 +44,7 @@
                                    A 7.25 7.25 0 0 1 0.75 8
                                    " stroke-dasharray="48.553093477052 48.553093477052" stroke-dashoffset="-49"
                       stroke="#ffffff" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"
-                      fill="transparent">
+                      fill="transparent" aria-hidden="true">
                     </path>
                   </g>
                 </svg>
@@ -54,7 +54,7 @@
               <a href="#" onclick="changeVideo('2')">
                 <svg height="16" width="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
                   style="rotate: 180deg;">
-                  <circle id="2" r="3" cx="8" cy="8" fill="white" />
+                  <circle id="2" r="3" cx="8" cy="8" fill="white" aria-hidden="true"/>
                   <g class="animated-button-scale">
                     <path class="animated-path" d="
                                                  M 0.75 8
@@ -66,7 +66,7 @@
                                                  A 7.25 7.25 0 0 1 0.75 8
                                                  " stroke-dasharray="48.553093477052 48.553093477052"
                       stroke-dashoffset="-49" stroke="#ffffff" stroke-width="1.5" stroke-linecap="square"
-                      stroke-linejoin="round" fill="transparent"></path>
+                      stroke-linejoin="round" fill="transparent" aria-hidden="true"></path>
                   </g>
                 </svg>
               </a>
@@ -75,7 +75,7 @@
               <a href="#" onclick="changeVideo('3')">
                 <svg height="16" width="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
                   style="rotate: 180deg;">
-                  <circle id="3" r="3" cx="8" cy="8" fill="white" />
+                  <circle id="3" r="3" cx="8" cy="8" fill="white" aria-hidden="true"/>
                   <g class="animated-button-scale">
                     <path class="animated-path" d="
                                                  M 0.75 8
@@ -87,7 +87,7 @@
                                                  A 7.25 7.25 0 0 1 0.75 8
                                                  " stroke-dasharray="48.553093477052 48.553093477052"
                       stroke-dashoffset="-49" stroke="#ffffff" stroke-width="1.5" stroke-linecap="square"
-                      stroke-linejoin="round" fill="transparent"></path>
+                      stroke-linejoin="round" fill="transparent" aria-hidden="true"></path>
                   </g>
                 </svg>
               </a>
@@ -97,7 +97,7 @@
       </div>
     </section>
     <!-- History of the dealership, lifestyle-->
-    <section class="section" id="section2">
+    <section class="section" id="section2" aria-labelledby="history-title lifestyle-title">
       <div class="second-homepage">
         <span class="history">
           <h1 style="text-align: center; padding-bottom: 10px; font-size: x-large;">History</h1>
@@ -112,9 +112,9 @@
             testament to
             Japan's racing spirit and technical prowess.</p>
         </span>
-        <img class="image-hero" src="/Images/2-removebg-preview.png" alt="1997 JGTC NTX" />
+        <img class="image-hero" src="/Images/2-removebg-preview.png" alt="Image of the 1997 JGTC NTX car model" />
         <span class="lifestyle">
-          <h1 style="text-align: center; padding-bottom: 10px; font-size: x-large;">More Than
+          <h1 id="lifestyle-title" style="text-align: center; padding-bottom: 10px; font-size: x-large;">More Than
             Just a Brand</h1>
           <p>We are more than cars, more than performance, and more than technology. We are a lifestyle — a community
             driven by
@@ -134,56 +134,56 @@
     <!-- Footer Section -->
     <section class="section" id="section3" style="height: 245px;">
       <footer>
-        <div class="social-media-icons">
-          <a href="https://www.instagram.com" target="_blank">
+        <div class="social-media-icons" aria-label="Social media links">
+          <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="https://www.twitter.com" target="_blank">
+          <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
             <i class="fab fa-twitter"></i>
           </a>
-          <a href="https://www.facebook.com" target="_blank">
+          <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
             <i class="fab fa-facebook"></i>
           </a>
-          <a href="https://www.pinterest.com" target="_blank">
+          <a href="https://www.pinterest.com" target="_blank" aria-label="Pinterest">
             <i class="fab fa-pinterest"></i>
           </a>
-          <a href="https://www.youtube.com" target="_blank">
+          <a href="https://www.youtube.com" target="_blank" aria-label="Youtube">
             <i class="fab fa-youtube"></i>
           </a>
-          <a href="https://www.linkedin.com" target="_blank">
+          <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
             <i class="fab fa-linkedin"></i>
           </a>
-          <a href="https://www.telegram.org" target="_blank">
+          <a href="https://www.telegram.org" target="_blank" aria-label="Telegram">
             <i class="fab fa-telegram"></i>
           </a>
-          <a href="https://www.tiktok.com" target="_blank">
+          <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok">
             <i class="fab fa-tiktok"></i>
           </a>
         </div>
-        <span class="footer-keyline"></span>
-        <div class="footer-lists">
-          <ul>
-            <li>Models</li>
-            <li>Template1</li>
-            <li>Template2</li>
+        <span class="footer-keyline" aria-hidden="true"></span>
+        <div class="footer-lists" aria-labelledby="footer-links">
+          <ul aria-label="Models">
+            <li>Car Models</li>
+            <li>Cool Car One</li>
+            <li>Cool Car Two</li>
           </ul>
-          <ul>
+          <ul aria-label="Maintenance and Accessories">
             <li>Your Car</li>
             <li>Maintenance</li>
             <li>Accessories</li>
           </ul>
           <span class="footer-logo-container">
-            <a aria-label="Home Page Logo" class="a-logo" href="index.html">
-              <span class="nav-logo" style="opacity: 1;"></span>
+            <a aria-label="Brand Logo" class="a-logo" href="index.html">
+              <span class="nav-logo" style="opacity: 1;" aria-hidden="true"></span>
             </a>
           </span>
-          <ul>
+          <ul aria-label="Lifestyle">
             <li>Lifestyle</li>
             <li>Experiences</li>
             <li>Design</li>
           </ul>
-          <ul>
-            <li>Follow Us</li>
+          <ul aria-label="Follow Us">
+            <li>Whatsapp</li>
             <li>Instagram</li>
             <li>Facebook</li>
           </ul>
@@ -192,40 +192,40 @@
     </section>
   </div>
   <!-- Navigation Bar -->
-  <nav aria-label="primary navigation" role="navigation" class="nav-container component-grid-container">
+  <nav aria-label="primary navigation bar" role="navigation" class="nav-container component-grid-container">
     <!-- Clickable Logo -->
     <span class="logo-container">
-      <a aria-label="Home Page Logo" class="a-logo" href="index.html">
-        <span class="nav-logo" style="opacity: 1;"></span>
+      <a aria-label="Brand Logo" class="a-logo" href="index.html">
+        <span class="nav-logo" style="opacity: 1;" aria-hidden="true"></span>
       </a>
     </span>
     <!-- Contact Us button-->
     <div class="contact-us-container">
-      <button type="button" class="contact-us-button">
+      <button type="button" class="contact-us-button" aria-label="Contact Us">
         <span class="contact-us-text">Contact Us</span>
-        <span class="contact-us-icon"></span>
+        <span class="contact-us-icon" aria-hidden="true"></span>
       </button>
     </div>
     <!-- Keyline -->
     <span class="nav-keyline"></span>
   </nav>
   <!-- Sliding Sidebar -->
-  <div class="slide">
+  <div class="slide" aria-label="Sidebar navigation">
     <ul class="sidebar-list">
-      <li><a href="#">Models</a></li>
-      <li><a href="#">Maintenance</a></li>
-      <li><a href="#">Visionaries</a></li>
-      <li><a href="#">Accessories</a></li>
-      <li><a href="#">About</a></li>
+      <li><a href="#" aria-label="Models">Models</a></li>
+      <li><a href="#" aria-label="Maintenance">Maintenance</a></li>
+      <li><a href="#" aria-label="Visionaries">Visionaries</a></li>
+      <li><a href="#" aria-label="Accessories">Accessories</a></li>
+      <li><a href="#" aria-label="About">About</a></li>
     </ul>
   </div>
   <!-- Menu Button and Menu Text Wrapper -->
   <div class="menu-container">
-    <button type="button" class="menu-button" onclick="changeMenu()">
+    <button type="button" class="menu-button" onclick="changeMenu()"  aria-label="Menu toggle button">
       <div class="menu-animation">
-        <span class="line top_line"></span>
-        <span class="line middle_line"></span>
-        <span class="line bottom_line"></span>
+        <span class="line top_line" aria-hidden="true"></span>
+        <span class="line middle_line" aria-hidden="true"></span>
+        <span class="line bottom_line" aria-hidden="true"></span>
       </div>
       <span class="menu-text">Menu</span>
     </button>
