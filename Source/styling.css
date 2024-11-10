@@ -79,9 +79,6 @@ section {
 
 .nav-container {
   opacity: 1;
-  translate: none;
-  rotate: none;
-  scale: none;
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 0) 15%,
@@ -107,6 +104,10 @@ section {
     rgba(0, 0, 0, 0.3) 15%,
     rgba(0, 0, 0, 0.5) 100%
   );
+}
+
+.nav-container.retract {
+  transform: translate(0px, -120px);
 }
 
 @media only screen and (min-width: 768px) {
@@ -204,6 +205,10 @@ ul li a:hover {
   transform: translate(0px, -30px);
 }
 
+.menu-container.retract2 {
+  transform: translate(0px, -90px);
+}
+
 @media only screen and (min-width: 768px) {
   .menu-container {
     height: 120px;
@@ -263,9 +268,6 @@ ul li a:hover {
 }
 
 .logo-container {
-  translate: none;
-  rotate: none;
-  scale: none;
   display: flex;
   align-items: center;
   position: relative;
@@ -311,7 +313,6 @@ ul li a:hover {
   position: relative;
   height: 45px;
   width: 45px;
-  transform: scale(1);
   overflow: hidden;
   background: url(/Images/HomePageLogo.svg);
   background-size: 100%;
@@ -696,20 +697,68 @@ ul li a:hover {
   animation-delay: 0.5s;
 }
 
-#footer {
-  height: 245px;
-  background-color: black;
-  display: grid;
+footer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding-left: 100px;
+  padding-right: 100px;
+  align-content: center;
+  row-gap: 10px;
 }
 
 .social-media-icons {
-  display: grid;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  gap: 75px;
+}
+
+.social-media-icons a {
+  top: 8px;
+  position: relative;
+}
+
+.fab {
+  color: white;
+  font-size: 24px;
+  margin: 0 10px;
 }
 
 .footer-keyline {
-  
+  display: flex;
+  position: relative;
+  width: 100%;
+  opacity: 0.5;
+  height: 1px;
+  background-color: #ddd;
+  transition: opacity 0.5s ease;
+  will-change: transform;
 }
 
 .footer-lists {
-  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 150px;
+  height: 100%;
+}
+
+.footer-lists ul {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  color: white;
+}
+
+.footer-logo-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 97px;
 }
