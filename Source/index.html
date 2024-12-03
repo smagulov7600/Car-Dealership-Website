@@ -201,10 +201,22 @@
     </span>
     <!-- Contact Us button-->
     <div class="contact-us-container">
-      <button type="button" class="contact-us-button" aria-label="Contact Us">
+      <button type="button" class="contact-us-button" aria-label="Contact Us" onclick="toggleContactUsFormMenu()">
         <span class="contact-us-text">Contact Us</span>
         <span class="contact-us-icon" aria-hidden="true"></span>
       </button>
+      <!-- Form Validation because we need that to meet project requirements -->
+      <form class="contact-us-form-validator-container hidden">
+        <span style="margin-left: 10px;">
+        <div class="status-message"></div>
+        <label for="Full Name">Name:</label><br>
+        <input type="text">
+        <label for="Email">Email:</label><br>
+        <input id="email" type="text"><br>
+        </span>
+        <br>
+        <input type="submit" onclick="validateEmail(event)">
+      </form>
     </div>
     <!-- Keyline -->
     <span class="nav-keyline"></span>
