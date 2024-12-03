@@ -762,3 +762,36 @@ footer {
   position: relative;
   height: 97px;
 }
+
+.contact-us-form-validator-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  background-color: #151515;
+  top: 140px;
+  right: -32px;
+
+  height: 225px;
+  width: 200px;
+
+  border: 2px solid white; /* Adds a white border with 2px thickness */
+  border-radius: 8px; /* Optional: adds rounded corners */
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.contact-us-form-validator-container label {
+  color: #fff;
+}
+
+.status-message.error {
+  color: red;
+}
+
+.status-message.success {
+  color: greenyellow;
+}
