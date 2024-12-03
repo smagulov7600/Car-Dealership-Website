@@ -144,7 +144,7 @@ const imageheroSection = document.querySelector(".image-hero");
 function changeNavMenu(status) {
   if (status == true) {
     // Going down
-    navBar.classList.remove("retract")
+    navBar.classList.remove("retract");
     navBar.classList.add("blur");
     menuButton.parentElement.classList.remove("retract2");
     menuButton.parentElement.classList.add("retract"); // Menu container
@@ -211,3 +211,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sections.forEach((section) => observer.observe(section));
 });
+
+const contacUsForm = document.querySelector(
+  ".contact-us-form-validator-container"
+);
+
+function toggleContactUsFormMenu() {
+  contacUsForm.classList.toggle("hidden");
+}
+
+function validateEmail(event) {
+  let successMessage = "Success!";
+  let errorMessage = "Invalid email";
+
+  const email = document.getElementById("email").value;
+  const statusMessage = document.querySelector(".status-message");
+
+  let emailPattern = /\S+@\S+\.\S+/; // Simple email validation regex pattern
+  if (!emailPattern.test(email)) {
+    // Show Error
+    statusMessage.textContent = errorMessage;
+    statusMessage.classList.remove("success");
+    statusMessage.classList.add("error");
+    event.preventDefault(); // Prevent form submission
+  } else {
+    // Show Success
+    statusMessage.textContent = successMessage;
+    statusMessage.classList.remove("error");
+    statusMessage.classList.add("success");
+    event.preventDefault();
+    // Proceed with form submission
+  }
+}
