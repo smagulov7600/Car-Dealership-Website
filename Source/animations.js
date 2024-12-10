@@ -5,7 +5,7 @@ const menuButton = document.querySelector(".menu-button");
 
 function changeMenu() {
   document.querySelector(".slide").classList.toggle("open");
-  menuButton.firstElementChild.classList.toggle("open");
+  document.querySelector(".menu-animation").classList.toggle("open");
   document.querySelector(".container-wrapper").classList.toggle("no-scroll");
 
   const text = menuButton.lastElementChild;
@@ -26,7 +26,7 @@ const headerTexts = ["Skylines", "Supra", "Nissan"];
 const paragraphTexts = ["GTR II Series", "A90 Release", "Z Series"];
 
 let letAnimationPlay = true;
-let currentCircle = document.getElementById("1");
+let currentCircle = document.getElementById("Circle-1");
 let currentVideoIndex = 0;
 
 function circlingAnimation(pathElement) {
@@ -36,11 +36,11 @@ function circlingAnimation(pathElement) {
   pathElement.addEventListener(
     "transitionend",
     async () => {
-      if (currentCircle.id == "1") {
+      if (currentCircle.id == "Circle-1") {
         changeVideo("2");
-      } else if (currentCircle.id == "2") {
+      } else if (currentCircle.id == "Circle-2") {
         changeVideo("3");
-      } else if (currentCircle.id == "3") {
+      } else if (currentCircle.id == "Circle-3") {
         pathElement.classList.add("stopped");
         letAnimationPlay = false;
       }
@@ -106,7 +106,7 @@ async function textAnimation(newId, newCircle) {
 }
 
 function changeVideo(newId) {
-  const newCircle = document.getElementById(`${newId}`);
+  const newCircle = document.getElementById(`Circle-${newId}`);
   if (currentCircle == newCircle) {
     return;
   }

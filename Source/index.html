@@ -3,11 +3,11 @@
 <html lang="en-US">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Car Dealership Website</title>
 
-  <link rel="stylesheet" href="styling.css" />
+  <link rel="stylesheet" href="styling.css">
   <link rel="shortcut icon" type="image/png" href="/Images/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -32,7 +32,7 @@
               <a href="#" onclick="changeVideo('1')" aria-label="Play video option 1">
                 <svg height="16" width="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
                   style="rotate: 180deg;">
-                  <circle class="selected" id="1" r="3" cx="8" cy="8" fill="white" aria-hidden="true"/>
+                  <circle class="selected" id="Circle-1" r="3" cx="8" cy="8" fill="white" aria-hidden="true" />
                   <g class="animated-button-scale default-transform">
                     <path class="animated-path" d="
                                    M 0.75 8
@@ -54,7 +54,7 @@
               <a href="#" onclick="changeVideo('2')">
                 <svg height="16" width="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
                   style="rotate: 180deg;">
-                  <circle id="2" r="3" cx="8" cy="8" fill="white" aria-hidden="true"/>
+                  <circle id="Circle-2" r="3" cx="8" cy="8" fill="white" aria-hidden="true" />
                   <g class="animated-button-scale">
                     <path class="animated-path" d="
                                                  M 0.75 8
@@ -75,7 +75,7 @@
               <a href="#" onclick="changeVideo('3')">
                 <svg height="16" width="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
                   style="rotate: 180deg;">
-                  <circle id="3" r="3" cx="8" cy="8" fill="white" aria-hidden="true"/>
+                  <circle id="Circle-3" r="3" cx="8" cy="8" fill="white" aria-hidden="true" />
                   <g class="animated-button-scale">
                     <path class="animated-path" d="
                                                  M 0.75 8
@@ -97,9 +97,9 @@
       </div>
     </section>
     <!-- History of the dealership, lifestyle-->
-    <section class="section" id="section2" aria-labelledby="history-title lifestyle-title">
+    <section class="section" id="section2" aria-label="History-and-Lifestyle">
       <div class="second-homepage">
-        <span class="history">
+        <div class="history">
           <h1 style="text-align: center; padding-bottom: 10px; font-size: x-large;">History</h1>
           <p>Fueled by a passion for precision and a relentless drive for technological advancement, Japanese automakers
             continue to
@@ -111,9 +111,9 @@
           <p>In 1997, the Japanese Grand Touring Championship (JGTC) brought the NTX series into the spotlight, a
             testament to
             Japan's racing spirit and technical prowess.</p>
-        </span>
-        <img class="image-hero" src="/Images/2-removebg-preview.png" alt="Image of the 1997 JGTC NTX car model" />
-        <span class="lifestyle">
+        </div>
+        <img class="image-hero" src="/Images/2-removebg-preview.png" alt="Image of the 1997 JGTC NTX car model">
+        <div class="lifestyle">
           <h1 id="lifestyle-title" style="text-align: center; padding-bottom: 10px; font-size: x-large;">More Than
             Just a Brand</h1>
           <p>We are more than cars, more than performance, and more than technology. We are a lifestyle — a community
@@ -128,13 +128,13 @@
             track, cruising through city streets, or exploring the unknown, our legacy lives in every journey you take.
             This is more
             than just a brand, it is a way of life.</p>
-        </span>
+        </div>
       </div>
     </section>
     <!-- Footer Section -->
     <section class="section" id="section3" style="height: 245px;">
       <footer>
-        <div class="social-media-icons" aria-label="Social media links">
+        <div class="social-media-icons">
           <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
@@ -161,7 +161,7 @@
           </a>
         </div>
         <span class="footer-keyline" aria-hidden="true"></span>
-        <div class="footer-lists" aria-labelledby="footer-links">
+        <div class="footer-lists">
           <ul aria-label="Models">
             <li>Car Models</li>
             <li>Cool Car One</li>
@@ -192,7 +192,7 @@
     </section>
   </div>
   <!-- Navigation Bar -->
-  <nav aria-label="primary navigation bar" role="navigation" class="nav-container component-grid-container">
+  <nav aria-label="primary navigation bar" class="nav-container component-grid-container">
     <!-- Clickable Logo -->
     <span class="logo-container">
       <a aria-label="Brand Logo" class="a-logo" href="index.html">
@@ -207,14 +207,11 @@
       </button>
       <!-- Form Validation because we need that to meet project requirements -->
       <form class="contact-us-form-validator-container hidden">
-        <span style="margin-left: 10px;">
-        <div class="status-message"></div>
-        <label for="Full Name">Name:</label><br>
-        <input type="text" required>
-        <label for="Email">Email:</label><br>
-        <input id="email" type="text" required><br>
-        </span>
-        <br>
+        <p class="status-message" style="margin-left: 10px;"></p>
+        <label id="Full-Name">Name:</label>
+        <input type="text" style="margin-bottom: 5px;" placeholder=" *" required>
+        <label id="Email">Email:</label>
+        <input id="email" type="text" placeholder=" *" required><br>
         <input type="submit" onclick="validateEmail(event)">
       </form>
     </div>
@@ -222,7 +219,7 @@
     <span class="nav-keyline"></span>
   </nav>
   <!-- Sliding Sidebar -->
-  <div class="slide" aria-label="Sidebar navigation">
+  <div class="slide">
     <ul class="sidebar-list">
       <li><a href="#" aria-label="Models">Models</a></li>
       <li><a href="#" aria-label="Maintenance">Maintenance</a></li>
@@ -233,12 +230,12 @@
   </div>
   <!-- Menu Button and Menu Text Wrapper -->
   <div class="menu-container">
-    <button type="button" class="menu-button" onclick="changeMenu()"  aria-label="Menu toggle button">
-      <div class="menu-animation">
-        <span class="line top_line" aria-hidden="true"></span>
-        <span class="line middle_line" aria-hidden="true"></span>
-        <span class="line bottom_line" aria-hidden="true"></span>
-      </div>
+    <div class="menu-animation" onclick="changeMenu()">
+      <span class="line top_line" aria-hidden="true"></span>
+      <span class="line middle_line" aria-hidden="true"></span>
+      <span class="line bottom_line" aria-hidden="true"></span>
+    </div>
+    <button type="button" class="menu-button" onclick="changeMenu()" aria-label="Menu toggle button">
       <span class="menu-text">Menu</span>
     </button>
   </div>
