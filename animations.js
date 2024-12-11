@@ -18,10 +18,11 @@ function changeMenu() {
 
 const videoElement = document.getElementById("video");
 const videoSources = [
-  "../Videos/VideoTemplate1.mp4",
-  "../Videos/VideoTemplate2.mp4",
-  "../Videos/VideoTemplate3.mp4",
+  "Videos/VideoTemplate1.mp4",
+  "Videos/VideoTemplate2.mp4",
+  "Videos/VideoTemplate3.mp4",
 ];
+
 const headerTexts = ["Skylines", "Supra", "Nissan"];
 const paragraphTexts = ["GTR II Series", "A90 Release", "Z Series"];
 
@@ -58,6 +59,7 @@ async function textAnimation(newId, newCircle) {
   currentVideoIndex = parseInt(newId) - 1;
   currentCircle = newCircle;
   const newVideoSource = videoSources[currentVideoIndex];
+  console.log()
 
   headerText.classList.remove("active-text");
   paragraphText.classList.remove("active-text");
