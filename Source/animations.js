@@ -18,9 +18,9 @@ function changeMenu() {
 
 const videoElement = document.getElementById("video");
 const videoSources = [
-  "/Videos/VideoTemplate1.mp4",
-  "/Videos/VideoTemplate2.mp4",
-  "/Videos/VideoTemplate3.mp4",
+  "../Videos/VideoTemplate1.mp4",
+  "../Videos/VideoTemplate2.mp4",
+  "../Videos/VideoTemplate3.mp4",
 ];
 const headerTexts = ["Skylines", "Supra", "Nissan"];
 const paragraphTexts = ["GTR II Series", "A90 Release", "Z Series"];
