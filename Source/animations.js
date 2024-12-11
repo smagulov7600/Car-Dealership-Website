@@ -199,7 +199,6 @@ document.addEventListener("DOMContentLoaded", () => {
             imageheroSection.classList.remove("pop-up");
             changeNavMenu(false);
           } else if (sectionId === "section3") {
-            console.log("3");
             navBar.classList.add("retract");
             menuButton.parentElement.classList.add("retract2");
           }
